@@ -1,6 +1,7 @@
 
 <div class="listOfMovies" >
-  <div class="movieContainer" ng-repeat = "x in filtered = (moviesList | filter: {genres_array:selected}) | startFrom: start | limitTo:10 ">
+  <div class="movieContainer"
+  ng-repeat = "x in filtered = (moviesList | filter: {genres_array:selected.item})| orderBy:selected.sort:selected.dir | startFrom: start | limitTo:10 ">
 
     <div class="movieLine1">
       <div class="movieLogo">
@@ -35,8 +36,7 @@
     </div>
   </div>
   <div class="navigation" style = "width:100%">
-    <input type="button" class = "mybtn" name="" value="Pre" ng-click = "pre()" ng-show = "start/10">
-    <input type="button" class = "mybtn" name="" value="Next" ng-click = "next()">
-    length: {{filtered.length}}   Page No: {{start/10 + 1}}
+    <input type="button" class = "mybtn" name="" value="Pre" ng-click = "pre()" ng-show = "start/results_per_page">
+    <input type="button" class = "mybtn" name="" value="Next" ng-click = "next()" ng-if = "filtered.length>start+results_per_page">
   </div>
 </div>

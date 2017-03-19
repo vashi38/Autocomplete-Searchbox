@@ -158,3 +158,27 @@ padding-top: 20px;
   border: solid;
 
 }
+.large{
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.filter{
+  position: fixed;
+  width: 300px;
+  background-color: white;
+  border: solid;
+  border-width: 1px;
+  padding: 10px;
+}
+.sortby{
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.filter_clear{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: grey;
+  cursor: pointer;
+}

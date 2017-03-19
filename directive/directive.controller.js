@@ -12,10 +12,22 @@ dir.directive("globalSearchDir",function($timeout){
   function linkFun(scope, ele, attr){
     scope.globalSearch = '';
     scope.options = scope.obj;
-    scope.optselected = "";
+    scope.optselected = {
+      'item': '',
+      'sort': '',
+      'dir': ''
+    };
     scope.selected = false;
-
-
+    scope.filter_view = false;
+    scope.filterObj = {
+      'by':'',
+      'dir':''
+    }
+    scope.filterFun = function(){
+      scope.optselected.sort = scope.filterObj.by;
+      scope.optselected.dir = parseInt(scope.filterObj.dir);
+      // console.log(parseInt(scope.filterObj.dir));
+    };
     scope.focus_lost = function(){
       // $timeout(function(){
       //   scope.selected = true;
@@ -31,11 +43,11 @@ dir.directive("globalSearchDir",function($timeout){
     };
     scope.selectOption = function(opt){
       // document.getElementById("GlobalSearch").focus();
-      console.log(ele);
+      // console.log(ele);
       scope.globalSearch = opt;
       scope.selected  = true;
-      console.log(opt);
-      scope.optselected = opt;
+      // console.log(opt);
+      scope.optselected.item = opt;
     };
   }
   return{
@@ -54,25 +66,28 @@ dir.directive("moviesList",function(){
     templateUrl: "directive/movieList.html",
     scope: {
       moviesList: "=movieslist",
-      selected: '=selected'
+      selected: "=selected"
     },
     link: function(scope,ele,attr){
         scope.start = 0;
+        scope.show_next = true;
+        scope.results_per_page = 10;
         scope.$watch('selected',function(newVal,oldVal){
           scope.start = 0;
+          // console.log(newVal);
         });
         scope.next = function(){
-          scope.start = scope.start + 10;
+          scope.start = scope.start + scope.results_per_page;
           if(scope.start>scope.filtered.length)
-            scope.start = scope.start - 10;
+            scope.start = scope.start - scope.results_per_page;
           else
             scrollTo(0,0);
         };
         scope.pre = function(){
 
-          scope.start = scope.start - 10;
+          scope.start = scope.start - scope.results_per_page;
           if(scope.start<0)
-            scope.start = scope.start + 10;
+            scope.start = scope.start + scope.results_per_page;
           else
           scrollTo(0,0);
         };

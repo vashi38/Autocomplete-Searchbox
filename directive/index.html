@@ -10,7 +10,7 @@
         ng-keypress = "change_selected($event)" ng-blur = "focus_lost()">
       <span>
         <i class="glyphicon glyphicon-remove-circle searchClear"
-          ng-click = "globalSearch = ''">
+          ng-click = "globalSearch = ''" >
         </i>
       </span>
     </div>
@@ -25,6 +25,33 @@
         </ul>
       </div>
     </span>
-
   </div>
+  <div class="col-lg-2 col-sm-2">
+    <i class="glyphicon glyphicon-filter large" ng-click = "filter_view = !filter_view"></i>
+    <div class="filter" ng-show = "filter_view">
+      <i class="glyphicon glyphicon-remove-circle filter_clear" ng-click = "filter_view = !filter_view"></i>
+      <label>Sort By:</label>
+      <label ng-click = "filterFun()">
+        <input id = "r1" type="radio" name="by" value="movie_title" ng-model = "filterObj.by" >
+        <label for = "r1" class="sortby">Tittle</label >
+      </label>
+      <label ng-click = "filterFun()">
+        <input id = "r2" type="radio" name="by" value="genres" ng-model = "filterObj.by">
+        <label for = "r2"  class="sortby">Generes</label >
+      </label>
+      <br>
+      <label >Direction:</label>
+      <label ng-click = "filterFun()">
+        <input id = "r3" type="radio" name="dir" value="0" ng-model = "filterObj.dir">
+        <label for = "r3"  class="sortby">Ascending</label>
+      </label>
+      <label ng-click = "filterFun()">
+        <input id = "r4" type="radio" name="dir" value="1" ng-model = "filterObj.dir">
+        <label for = "r4"  class="sortby">Decending</label>
+      </label>
+
+    </div>
+  
+  </div>
+
 </div>
