@@ -35,6 +35,10 @@
       <span class="movieCountry">Budget: USD {{x.budget}}</span>
     </div>
   </div>
+  <div class="noresult">
+    <img src="images/noresultfound.png" alt="">
+    <h1>No result Found</h1>
+  </div>
   <div class="navigation" style = "width:100%">
     <input type="button" class = "mybtn" name="" value="Pre" ng-click = "pre()" ng-show = "start/results_per_page">
     <input type="button" class = "mybtn" name="" value="Next" ng-click = "next()" ng-if = "filtered.length>start+results_per_page">
