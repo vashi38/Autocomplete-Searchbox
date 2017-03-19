@@ -1,0 +1,42 @@
+
+<div class="listOfMovies" >
+  <div class="movieContainer" ng-repeat = "x in filtered = (moviesList | filter: {genres_array:selected}) | startFrom: start | limitTo:10 ">
+
+    <div class="movieLine1">
+      <div class="movieLogo">
+        <img src="images/game-logo.png" alt="" height = "100%" width="100%">
+      </div>
+      <div class="movieDetails">
+        <div class="detailsLine1">
+          <span class="movieTittle">{{x.movie_title}}({{x.title_year}})</span>
+          <span class="movieCountry" style="width:100px">Country: {{x.country}}</span>
+        </div>
+        <div class="detailsLine2">
+          <table>
+            <tr>
+              <td class="table-heading">Language</td>
+              <td>: {{x.language}}</td>
+            </tr>
+            <tr>
+              <td class="table-heading">Director</td>
+              <td>: {{x.director_name}}</td>
+            </tr>
+            <tr>
+              <td class="table-heading">Actors</td>
+              <td>: {{x.actor_1_name}}, {{x.actor_2_name}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="movieLine2">
+      <span class="movieCountry">Genres: {{x.displayList}}  </span>
+      <span class="movieCountry">Budget: USD {{x.budget}}</span>
+    </div>
+  </div>
+  <div class="navigation" style = "width:100%">
+    <input type="button" class = "mybtn" name="" value="Pre" ng-click = "pre()" ng-show = "start/10">
+    <input type="button" class = "mybtn" name="" value="Next" ng-click = "next()">
+    length: {{filtered.length}}   Page No: {{start/10 + 1}}
+  </div>
+</div>
