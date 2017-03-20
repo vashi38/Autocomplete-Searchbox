@@ -30,16 +30,46 @@
     <i class="glyphicon glyphicon-filter large" ng-click = "filter_view = !filter_view"></i>
     <div class="filter" ng-show = "filter_view">
       <i class="glyphicon glyphicon-remove-circle filter_clear" ng-click = "filter_view = !filter_view"></i>
-      <label>Sort By:</label>
-      <label ng-click = "filterFun()">
+      <table>
+        <tr>
+          <td><label>Sort By:</label></td>
+          <td>
+            <label ng-click = "filterFun()" ng-repeat = "orderby in orderby_arr">
+              <input id = "{{orderby.actual_name}}" type="radio" name="by"
+               ng-value="orderby.actual_name" ng-model = "filterObj.by" >
+              <label for = "{{orderby.actual_name}}" class="sortby">
+                {{orderby.display_name}}
+              </label >
+              <br>
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td><label >Direction:</label></td>
+          <td><label ng-click = "filterFun()">
+            <input id = "r3" type="radio" name="dir" value="0" ng-model = "filterObj.dir">
+            <label for = "r3"  class="sortby">Ascending</label>
+          </label>
+          <label ng-click = "filterFun()">
+            <input id = "r4" type="radio" name="dir" value="1" ng-model = "filterObj.dir">
+            <label for = "r4"  class="sortby">Decending</label>
+          </label></td>
+        </tr>
+      </table>
+      <!-- <label>Sort By:</label>
+      <label ng-click = "filterFun()" ng-repeat = "orderby in orderby_arr">
+        <input id = "{{orderby.actual_name}}" type="radio" name="by" ng-value="orderby.actual_name" ng-model = "filterObj.by" >
+        <label for = "{{orderby.actual_name}}" class="sortby">{{orderby.display_name}}</label >
+      </label> -->
+      <!-- <label ng-click = "filterFun()">
         <input id = "r1" type="radio" name="by" value="movie_title" ng-model = "filterObj.by" >
         <label for = "r1" class="sortby">Tittle</label >
       </label>
       <label ng-click = "filterFun()">
         <input id = "r2" type="radio" name="by" value="genres" ng-model = "filterObj.by">
         <label for = "r2"  class="sortby">Generes</label >
-      </label>
-      <br>
+      </label> -->
+      <!-- <br>
       <label >Direction:</label>
       <label ng-click = "filterFun()">
         <input id = "r3" type="radio" name="dir" value="0" ng-model = "filterObj.dir">
@@ -48,7 +78,7 @@
       <label ng-click = "filterFun()">
         <input id = "r4" type="radio" name="dir" value="1" ng-model = "filterObj.dir">
         <label for = "r4"  class="sortby">Decending</label>
-      </label>
+      </label> -->
       <input type="button" name="" value="Clear Filter" ng-click = "clear_filter()">
     </div>
 

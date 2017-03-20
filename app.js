@@ -2,6 +2,14 @@ var app = angular.module("myApp",['CustomDirective']);
 
 app.controller("autoCompleteCtrl", function($scope,GetData){
  var displayList = '';
+ $scope.orderby_arr = [{
+   'actual_name': 'movie_title',
+   'display_name': 'Movie Title'
+ },
+ {
+   'actual_name': 'genres',
+   'display_name': 'Generes'
+ }];
   GetData.getList().then(function(response){
 
      console.log(response);

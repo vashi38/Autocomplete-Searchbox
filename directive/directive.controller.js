@@ -17,6 +17,7 @@ dir.directive("globalSearchDir",function($timeout){
       'sort': '',
       'dir': ''
     };
+    
     scope.selected = false;
     scope.filter_view = false;
     scope.filterObj = {
@@ -58,7 +59,8 @@ dir.directive("globalSearchDir",function($timeout){
     templateUrl:"directive/index.html",
     scope:{
       obj:"=",
-      optselected : "="
+      optselected : "=",
+      orderby_arr : "=orderby"
     },
     link: linkFun,
     restrict: "E"
