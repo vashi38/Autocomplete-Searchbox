@@ -127,14 +127,14 @@ padding-top: 20px;
   padding-left: 20px;
 }
 .movieTittle{
-  font-size: 2vmin;
+  /*font-size: 2vmin;*/
   color: grey;
-
+  width: 230px;
 }
 .movieCountry{
   color: grey;
   padding-top: 10px;
-  font-size: 1.9vh;
+  /*font-size: 1.9vh;*/
 }
 .table-heading{
   width: 35%;
