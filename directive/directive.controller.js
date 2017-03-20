@@ -35,10 +35,11 @@ dir.directive("globalSearchDir",function($timeout){
       scope.optselected.dir = parseInt(scope.filterObj.dir);
     };
     scope.focus_lost = function(){
-      // $timeout(function(){
-      //   scope.selected = true;
-      // },100);
-      scope.selectOption(scope.globalSearch);
+      $timeout(function(){
+        scope.selected = true;
+        scope.selectOption(scope.globalSearch);
+      },100);
+
     };
     scope.change_selected = function(event){
       if(scope.selected == true)

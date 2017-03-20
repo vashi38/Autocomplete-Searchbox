@@ -35,6 +35,9 @@
       <span class="movieCountry">Budget: USD {{x.budget}}</span>
     </div>
   </div>
+  <div class="endofresult col-lg-12 col-sm-12" ng-show = "filtered.length<start+results_per_page">
+    <center><h4 >-----End of Result-----</h4></center>
+  </div>
   <div class="noresult" ng-show = "filtered.length == 0">
     <img src="images/noresultfound.png" alt="">
     <h1>No result Found</h1>
