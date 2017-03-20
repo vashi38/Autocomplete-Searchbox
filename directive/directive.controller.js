@@ -5,7 +5,7 @@ dir.filter('startFrom', function () {
         if(!input) return;
         start = +start;
         return input.slice(start);
-    }
+    };
 });
 
 dir.directive("globalSearchDir",function($timeout){
@@ -22,11 +22,17 @@ dir.directive("globalSearchDir",function($timeout){
     scope.filterObj = {
       'by':'',
       'dir':''
-    }
+    };
+    scope.clear_filter = function(){
+      scope.filterObj = {
+        'by':'',
+        'dir':''
+      };
+      scope.filterFun();
+    };
     scope.filterFun = function(){
       scope.optselected.sort = scope.filterObj.by;
       scope.optselected.dir = parseInt(scope.filterObj.dir);
-      // console.log(parseInt(scope.filterObj.dir));
     };
     scope.focus_lost = function(){
       // $timeout(function(){
@@ -42,11 +48,8 @@ dir.directive("globalSearchDir",function($timeout){
       scope.options = scope.obj;
     };
     scope.selectOption = function(opt){
-      // document.getElementById("GlobalSearch").focus();
-      // console.log(ele);
       scope.globalSearch = opt;
       scope.selected  = true;
-      // console.log(opt);
       scope.optselected.item = opt;
     };
   }
