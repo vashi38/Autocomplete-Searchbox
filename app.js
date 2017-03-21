@@ -36,6 +36,7 @@ app.service("GetData", function ($http){
       method:"GET",
       url:"response.json"
     }).then(function(response){
+      console.log(response.data);
       return response.data;
     });
   };
